@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "llama-agents-intro"
+version = "0.1.0"
+description = ""
+authors = ["Elvin Gomez <elvin@codingmindset.io>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+llama-agents = "^0.0.11"
+llama-index-agent-openai = "^0.2.8"
+llama-index-embeddings-openai = "^0.1.10"
+llama-index-program-openai = "^0.1.6"
+python-dotenv = "^1.0.1"
+geopy = "^2.4.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
