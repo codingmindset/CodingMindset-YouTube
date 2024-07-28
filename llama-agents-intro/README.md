@@ -32,7 +32,7 @@ Esta una aplicación diseñada para proporcionar información sobre el clima y t
      OPENAI_API_KEY=your_api_key_here
      ```
 
-   Puedes obtener una clave API gratuita registrándote en [OpenWeatherMap](https://home.openweathermap.org/users/sign_up).
+   Puedes obtener una clave API gratuita registrándote en [OpenWeatherMap](https://home.openweathermap.org/users/sign_up target="_blank").
 
 ## Uso
 
@@ -56,7 +56,7 @@ llama-agents monitor --control-plane-url http://127.0.0.1:8000
 
 ## Tutorial
 
-Puedes ver el tutorial completo y el análisis de LLama-agents aquí 👉🏼 [Tutorial de LLama-agents](https://youtu.be/tk6bJaj3qV4).
+Puedes ver el tutorial completo y el análisis de LLama-agents aquí 👉🏼 [Tutorial de LLama-agents](https://youtu.be/tk6bJaj3qV4 target="_blank").
 
 ## Contribuir
 
