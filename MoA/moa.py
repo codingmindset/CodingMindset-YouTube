@@ -100,7 +100,7 @@ async def run_llm(model, user_prompt):
                 temperature=TEMPERATURE,
                 max_tokens=MAX_TOKENS,
             )
-            logger.info(f"Received response from model {model}")
+            logger.debug(f"> Received response from model [{model}]: {response.choices[0].message.content}")
             return response.choices[0].message.content
         except error.RateLimitError as e:
             logger.warning(f"Rate limit exceeded for model {model}: {e}")
@@ -119,8 +119,9 @@ def __collect_responses(system_prompt, results):
         + "\n".join([f"{i+1}. {element}" for i, element in enumerate(results)])
     )
 
-async def __gather_responses(models, user_prompt):
+async def __gather_responses(models, user_prompt, layer=1):
     """Recopila las respuestas de todos los modelos de propuesta de forma asíncrona."""
+    logger.debug(f"Running layer {layer}")
     logger.info("Gathering responses from proposal models")
     results = await asyncio.gather(*[run_llm(model, user_prompt) for model in models])  # Ejecuta las llamadas a los modelos asincrónicamente
     results = [result for result in results if result] # Filtra las respuestas que no son None (en caso de errores)
@@ -133,9 +134,10 @@ def __stream_final_response(finalStream):
     for chunk in finalStream: # Itera sobre los fragmentos de la respuesta a medida que se reciben
         print(chunk.choices[0].delta.content or "", end="", flush=True) # Imprime el contenido del fragmento (si hay alguno)
 
-async def __run_aggregator_model(user_prompt, concatenated_results):
+async def __run_aggregator_model(user_prompt, concatenated_results, layer=2):
     """Ejecuta el modelo agregador con la instrucción y las respuestas concatenadas."""
-    logger.info("Running aggregator model")
+    logger.debug(f"Running layer {layer} (aggregator model)")
+    # logger.info("Running aggregator model")
     finalStream = client.chat.completions.create(
         model=AGGREGATOR_MODEL,
         messages=[
@@ -157,11 +159,11 @@ async def multi_layer_moa(user_prompt, layers):
     results = await __gather_responses(PROPOSAL_MODELS, user_prompt)
 
     for layer in range(1, layers - 1): # Ejecuta las capas intermedias
-        logger.info(f"Running layer {layer + 1} of {layers}")
-        results = await __gather_responses(PROPOSAL_MODELS, user_prompt)
+        logger.debug(f"Running layer {layer + 1} of {layers}")
+        results = await __gather_responses(PROPOSAL_MODELS, user_prompt, layer=layer+1)
 
     concatenated_results = __collect_responses(AGGREGATOR_SYSTEM_PROMPT, results)
-    await __run_aggregator_model(user_prompt, concatenated_results)
+    await __run_aggregator_model(user_prompt, concatenated_results, layer=layers)
 
 def main():
     parser = argparse.ArgumentParser(description="Run the MOA process.")
@@ -175,8 +177,10 @@ def main():
 
     user_prompt = args.prompt
     if args.mode == "two_layer":
+        logger.info("Running two-layer MOA")
         asyncio.run(two_layer_moa(user_prompt))
     elif args.mode == "multi_layer":
+        logger.info("Running multi-layer MOA")
         asyncio.run(multi_layer_moa(user_prompt, args.layers))
 
 if __name__ == "__main__":
