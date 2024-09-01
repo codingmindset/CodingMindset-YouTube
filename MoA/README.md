@@ -10,7 +10,7 @@ Esta aplicación demuestra cómo la metodología MoA puede mejorar significativa
 
 Puedes ver el tutorial completo y el análisis de Mixture of Agents aquí 👇🏽👇🏽
 
-[![Watch this video on YouTube](https://img.youtube.com/vi/jqHUdrxqlPQ/0.jpg)](https://www.youtube.com/watch?v=R-o_a6dvzQM)
+[![Watch this video on YouTube](https://img.youtube.com/vi/jqHUdrxqlPQ/0.jpg)](https://www.youtube.com/watch?v=jqHUdrxqlPQ)
 
 ## Requisitos
 
