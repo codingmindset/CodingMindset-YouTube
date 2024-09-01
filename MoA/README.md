@@ -82,7 +82,7 @@ poetry run python moa_demo.py --mode multi_layer --layers 3 --prompt "Tu pregunt
 
 Puedes ver el tutorial completo y el análisis de Mixture of Agents aquí 👇🏽👇🏽
 
-[![Watch this video on YouTube](https://img.youtube.com/vi/jqHUdrxqlPQ/0.jpg)](https://www.youtube.com/watch?v=R-o_a6dvzQM)
+[![Watch this video on YouTube](https://img.youtube.com/vi/jqHUdrxqlPQ/0.jpg)](https://www.youtube.com/watch?v=jqHUdrxqlPQ)
 
 
 ## Obtención de la API Key de Together
