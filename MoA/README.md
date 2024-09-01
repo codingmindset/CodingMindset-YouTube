@@ -6,12 +6,6 @@ Este repositorio contiene una implementación demostrativa del concepto Mixture 
 
 Esta aplicación demuestra cómo la metodología MoA puede mejorar significativamente la calidad de las respuestas generadas por LLMs. Utiliza una arquitectura en capas con múltiples agentes LLM, donde cada agente refina y mejora las respuestas generadas por los agentes en la capa anterior.
 
-## Tutorial
-
-Puedes ver el tutorial completo y el análisis de Mixture of Agents aquí 👇🏽👇🏽
-
-[![Watch this video on YouTube](https://img.youtube.com/vi/jqHUdrxqlPQ/0.jpg)](https://www.youtube.com/watch?v=R-o_a6dvzQM)
-
 ## Requisitos
 
 - Python 3.10 o superior
@@ -84,18 +78,25 @@ poetry run python moa_demo.py --mode multi_layer --layers 3 --prompt "Tu pregunt
 - **Modelo Agregador:**
   - meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo
 
+## Tutorial
+
+Puedes ver el tutorial completo y el análisis de Mixture of Agents aquí 👇🏽👇🏽
+
+[![Watch this video on YouTube](https://img.youtube.com/vi/jqHUdrxqlPQ/0.jpg)](https://www.youtube.com/watch?v=jqHUdrxqlPQ)
+
 
 ## Obtención de la API Key de Together
 
 Para utilizar este demo, necesitarás una API key de Together. Sigue estos pasos para obtenerla:
 
-1. Visita la página de registro de Together: [https://api.together.ai/](https://api.together.ai/)
+1. Visita la página de registro de Together: [https://www.together.ai/sign-up](https://www.together.ai/sign-up)
 2. Crea una cuenta o inicia sesión si ya tienes una.
 3. Una vez en tu dashboard, busca la sección para generar una nueva API key.
 4. Copia la API key generada y pégala en tu archivo `.env` como se indica en la sección de instalación.
 
 Recuerda mantener tu API key segura y no compartirla públicamente.
 
+[El resto del contenido se mantiene igual]
 
 ## Contribuir
 
@@ -108,5 +109,14 @@ Este proyecto está bajo la licencia [MIT](LICENSE).
 
 ---
 
+## Template `.env`
+
+Asegúrate de crear un archivo `.env` en la raíz del proyecto con el siguiente contenido:
+
+```env
+TOGETHER_API_KEY=your_api_key_here
+```
+
+---
 
 ¡Disfruta explorando Mixture of Agents! Si tienes alguna pregunta o sugerencia, no dudes en abrir un issue.
