@@ -24,7 +24,7 @@ Puedes ver el tutorial completo y la explicación detallada del proceso de fine-
 
 ## Link para el bono de 10$ en replicate
 
-[Haz click aquí](https://replicate.com/invites/572ae3c6-1385-41b3-afdc-1e99e11836b8)
+[Haz click aquí](https://replicate.com/invites/7e32f2ad-a14b-4eaf-9fc5-4f5c67b38ef1)
 
 
 ## Contribuciones
